@@ -1,4 +1,11 @@
 return {
+    {
+        "github/copilot.vim",
+        name = "copilot",
+        config = function()
+           require('github/start/copilot').setup()
+        end,
+    },
   -- Add plugins, the lazy syntax
   -- "andweeb/presence.nvim",
   -- {

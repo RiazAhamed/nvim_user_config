@@ -10,4 +10,5 @@ return {
   { import = "astrocommunity.pack.astro" },
   { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.pack.html-css" },
+  { import = "astrocommunity.pack.typescript" },
 }

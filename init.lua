@@ -1,5 +1,5 @@
 return {
-  -- Configure AstroNvim updates
+-- Configure AstroNvim updates
   updater = {
     remote = "origin", -- remote to use
     channel = "stable", -- "stable" or "nightly"
@@ -34,10 +34,14 @@ return {
         enabled = true, -- enable or disable format on save globally
         allow_filetypes = { -- enable format on save for specified filetypes only
           -- "go",
+          "js",
+          "ts",
+          "tsx"
         },
         ignore_filetypes = { -- disable format on save for specified filetypes
-          -- "python",
-        },
+          "markdown",
+          "python"
+        }
       },
       disabled = { -- disable formatting capabilities for the listed language servers
         -- disable lua_ls formatting capability if you want to use StyLua to format your lua code
