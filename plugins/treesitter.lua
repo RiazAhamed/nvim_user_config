@@ -9,7 +9,9 @@ return {
         "html",
         "css",
         "ts",
-        "js"
+        "js",
+        "rust",
+        "kotlin"
     })
   end,
 }

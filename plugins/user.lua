@@ -2,6 +2,7 @@ return {
     {
         "github/copilot.vim",
         name = "copilot",
+        lazy = false,
         config = function()
            require('github/start/copilot').setup()
         end,
@@ -13,7 +14,7 @@ return {
          "nvim-treesitter/nvim-treesitter",
          "nvim-tree/nvim-web-devicons"
       },
-    }
+    },
   -- Add plugins, the lazy syntax
   -- "andweeb/presence.nvim",
   -- {

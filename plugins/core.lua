@@ -1,15 +1,34 @@
 return {
+  { "nvimdev/dashboard-nvim", enabled = false },
+  { "echasnovski/mini.starter", enabled = false },
+  -- Dashboard. This runs when neovim starts, and is what displays
   -- customize alpha options
   {
     "goolord/alpha-nvim",
     opts = function(_, opts)
       -- customize the dashboard header
-      opts.section.header.val = {
-        "    ███    ██ ██    ██ ██ ███    ███",
-        "    ████   ██ ██    ██ ██ ████  ████",
-        "    ██ ██  ██ ██    ██ ██ ██ ████ ██",
-        "    ██  ██ ██  ██  ██  ██ ██  ██  ██",
-        "    ██   ████   ████   ██ ██      ██",
+      local dashboard = require "alpha.themes.dashboard";
+      local logo = [[
+         ███████╗████████╗██╗   ██╗███████╗███████╗██╗███╗   ██╗ ██████╗ ██████╗ ██████╗ ███████╗ 
+         ██╔════╝╚══██╔══╝██║   ██║██╔════╝██╔════╝██║████╗  ██║██╔════╝██╔═══██╗██╔══██╗██╔════╝
+         ███████╗   ██║   ██║   ██║█████╗  █████╗  ██║██╔██╗ ██║██║     ██║   ██║██║  ██║█████╗ 
+         ╚════██║   ██║   ██║   ██║██╔══╝  ██╔══╝  ██║██║╚██╗██║██║     ██║   ██║██║  ██║██╔══╝
+         ███████║   ██║   ╚██████╔╝██║     ██║     ██║██║ ╚████║╚██████╗╚██████╔╝██████╔╝███████╗
+         ╚══════╝   ╚═╝    ╚═════╝ ╚═╝     ╚═╝     ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═════╝ ╚═════╝ ╚══════╝
+      ]]
+      opts.section.header.val = logo;
+      dashboard.section.header.val = vim.split(logo, "\n")
+      -- customize the dashboard buttons
+      opts.section.buttons.val = {
+        dashboard.button("f", " " .. " Find file",       "<cmd> Telescope find_files <cr>"),
+        dashboard.button("n", " " .. " New file",        "<cmd> ene <BAR> startinsert <cr>"),
+        dashboard.button("r", " " .. " Recent files",    "<cmd> Telescope oldfiles <cr>"),
+        dashboard.button("g", " " .. " Find text",       "<cmd> Telescope live_grep <cr>"),
+        dashboard.button("c", " " .. " Config",          [[<cmd> lua require("stuffincode.util").telescope.config_files()() <cr>]]),
+        dashboard.button("s", " " .. " Restore Session", [[<cmd> lua require("persistence").load() <cr>]]),
+        dashboard.button("x", " " .. " Lazy Extras",     "<cmd> LazyExtras <cr>"),
+        dashboard.button("l", "󰒲 " .. " Lazy",            "<cmd> Lazy <cr>"),
+        dashboard.button("q", " " .. " Quit",            "<cmd> qa <cr>"),
       }
       return opts
     end,

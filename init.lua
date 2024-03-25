@@ -67,6 +67,9 @@ return {
         disabled_plugins = { "tohtml", "gzip", "matchit", "zipPlugin", "netrwPlugin", "tarPlugin" },
       },
     },
+    plugins = {
+      "copilot"
+    }
   },
 
   -- This function is run last and is a good place to configuring
